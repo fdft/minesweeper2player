@@ -1,0 +1,51 @@
+
+<html>
+<head>
+	<title> Minesweeper Game </title>
+
+
+
+	<!-- J-Query -->
+	<script src="https://code.jquery.com/jquery-2.0.3.js"></script> 
+
+		
+	<!-- Angular -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	
+    <!-- Firebase-->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+ 
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+	
+
+<script src="ms.js"></script> 
+
+<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link href="ms.css" rel="stylesheet">
+
+	
+</head>
+<body>
+<h1>Minesweeper</h1>
+Trying out AngularJS. Love the data binding feature which I used in this <a href="http://vlaskovits.com/lean-startup-judo-maximum-efficiency-with-minimum-effort/">judo</a>-ed example.<br/><br/>
+Code first copied form <a href="http://jsfiddle.net/secondorderpolynomial/M8Ccz/">here</a>
+This is a good example too <a href="http://jsfiddle.net/secondorderpolynomial/M8Ccz/">jsfiddle</a>, and the main site <a href="http://jsfiddle.net/luisperezphd/UWSWy/">here</a>
+
+<div ng-app='minesweeper' ng-controller="Main" ng-init="initstate()">
+    <table class="gdtable">
+        <tr ng-repeat="n in range()">
+            <td ng-repeat="m in range()" class="gdtd">
+                <button ng-class="cf(state[n][m])" ng-click="reveal(n, m);">{{ct(state[n][m], n, m)}}</button>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <button class="smiley btn btn-warning" ng-click="endmame();"><i class="icon-smile"></i></button>
+        <button class="smiley btn btn-info" ng-click="reinit();"><i class="icon-refresh"></i></button>
+    <b>{{alive}}</b>
+</div>
+</body>
+</html>

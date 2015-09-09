@@ -1,0 +1,9 @@
+{
+  "firebase": "minesweeper2player",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

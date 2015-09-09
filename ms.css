@@ -1,0 +1,32 @@
+table.gdtable {
+    border: 3px
+}
+td.gdtd {
+    padding:1px;
+    background-color:#444444
+}
+.gd {
+    width:3em;
+    height:3em
+}
+.gd-hidden {
+    border:outset;
+}
+.gd-mine {
+    border:none;
+}
+.gd-show {
+    border:none;
+}
+.gd-show-mine {
+    border:none;
+    background-color:red;
+}
+.gd-show-missed {
+    border:none;
+    background-color:yellow;
+}
+.smiley {
+    font-size:3em;
+    font-weight:bold;
+}
