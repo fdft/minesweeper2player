@@ -34,8 +34,17 @@ Trying out AngularJS. Love the data binding feature which I used in this <a href
 Code first copied form <a href="http://jsfiddle.net/secondorderpolynomial/M8Ccz/">here</a>
 This is a good example too <a href="http://jsfiddle.net/secondorderpolynomial/M8Ccz/">jsfiddle</a>, and the main site <a href="http://jsfiddle.net/luisperezphd/UWSWy/">here</a>
 
-<div ng-app='minesweeper' ng-controller="Main" ng-init="initstate()">
-    <table class="gdtable">
+<div ng-app='minesweeper' ng-controller="GameController" ng-init="initstate()">
+    
+<form novalidate>
+    Play as player:
+    <input ng-model="playas" value="{{PLAYER1}}" type="radio" name="debugplayas1" checked="checked"> Player 1
+	<input ng-model="playas" value="{{PLAYER2}}" type="radio" name="debugplayas2"> Player 2
+
+    <br> Playing as player {{playas}}
+  </form>
+  
+	<table class="gdtable">
         <tr ng-repeat="n in range()">
             <td ng-repeat="m in range()" class="gdtd">
                 <button ng-class="cf(state[n][m])" ng-click="reveal(n, m);">{{ct(state[n][m], n, m)}}</button>

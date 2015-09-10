@@ -1,6 +1,9 @@
-var myApp = angular.module('minesweeper', []);
+var myApp = angular.module('minesweeper', ["firebase"]);
 
-function Main($scope) {
+myApp.controller('GameController', ['$scope', '$firebaseObject',
+function($scope, $firebaseObject) {
+	$scope.PLAYER1 = "1";
+	$scope.PLAYER2 = "2";
     $scope.alive = "";
     $scope.side = 8;
     // states:
@@ -166,4 +169,4 @@ function Main($scope) {
             }
         }
     };
-};
+}]);
