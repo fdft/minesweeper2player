@@ -23,7 +23,7 @@
 <script src="ms.js"></script> 
 
 <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link href="ms.css" rel="stylesheet">
 
 	
@@ -34,20 +34,24 @@ Trying out AngularJS. Love the data binding feature which I used in this <a href
 Code first copied form <a href="http://jsfiddle.net/secondorderpolynomial/M8Ccz/">here</a>
 This is a good example too <a href="http://jsfiddle.net/secondorderpolynomial/M8Ccz/">jsfiddle</a>, and the main site <a href="http://jsfiddle.net/luisperezphd/UWSWy/">here</a>
 
+This is something <span class="icon-certificate"></span> 
+and this is a  bomb <span class="fa fa-bomb"></span>
+and this is a  bomb <i class="fa fa-bomb"></i>
+
 <div ng-app='minesweeper' ng-controller="GameController" ng-init="initstate()">
     
 <form novalidate>
     Play as player:
-    <input ng-model="playas" value="{{PLAYER1}}" type="radio" name="debugplayas1" checked="checked"> Player 1
-	<input ng-model="playas" value="{{PLAYER2}}" type="radio" name="debugplayas2"> Player 2
+    <input ng-model="currentPlayer" value="{{PLAYER1}}" type="radio" name="debugplayas"> Player 1
+	<input ng-model="currentPlayer" value="{{PLAYER2}}" type="radio" name="debugplayas"> Player 2
 
-    <br> Playing as player {{playas}}
+    <br> Playing as player {{currentPlayer}}
   </form>
   
 	<table class="gdtable">
         <tr ng-repeat="n in range()">
             <td ng-repeat="m in range()" class="gdtd">
-                <button ng-class="cf(state[n][m])" ng-click="reveal(n, m);">{{ct(state[n][m], n, m)}}</button>
+                <button ng-class="getCSSClass(state[n][m])" ng-click="reveal(n, m);"><i ng-show="showBomb(state[n][m])" class="fa fa-bomb"></i>{{printTile(state[n][m], n, m)}}</button>
             </td>
         </tr>
     </table>
@@ -55,6 +59,8 @@ This is a good example too <a href="http://jsfiddle.net/secondorderpolynomial/M8
     <button class="smiley btn btn-warning" ng-click="endmame();"><i class="icon-smile"></i></button>
         <button class="smiley btn btn-info" ng-click="reinit();"><i class="icon-refresh"></i></button>
     <b>{{alive}}</b>
+    
+    <button class="btn btn-warning" ng-click="debugClickAllNonBombs();">Click all non-bombs</button>
 </div>
 </body>
 </html>

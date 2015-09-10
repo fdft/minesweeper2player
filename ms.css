@@ -18,9 +18,13 @@ td.gdtd {
 .gd-show {
     border:none;
 }
-.gd-show-mine {
+.gd-show-mine1 {
     border:none;
-    background-color:red;
+    background-color:#FF0200;
+}
+.gd-show-mine2 {
+    border:none;
+    background-color:#19FF5E;
 }
 .gd-show-missed {
     border:none;
